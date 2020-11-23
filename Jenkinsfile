@@ -18,10 +18,15 @@ sudo docker build --tag oracle/jdeveloper:$SW_VERSION --build-arg SW_FILE1=$SW_F
         }
       }
     }
-    stage('Push Docker Image to Local Registry') {
+    stage('Push Docker Image to docker hub Registry') {
       steps {
-        sh 'docker tag oracle/jdeveloper:$SW_VERSION localhost:5000/oracle/jdeveloper:$SW_VERSION'
-        sh 'docker push localhost:5000/oracle/jdeveloper:$SW_VERSION'
+            docker.withRegistry('https://registry.hub.docker.com', 'store.docker') {
+
+        def customImage = docker.build("venkateshdevops2020/oracle_jdeveloper_12.2.1.4")
+     
+        /* Push the container to the custom Registry */
+        customImage.push()
+    }
       }
     }
     stage('Cleanup') {
