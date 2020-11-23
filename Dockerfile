@@ -7,7 +7,7 @@ ADD $SW_FILE1 /tmp/
 ADD $SW_FILE2 /tmp/
 ADD create_inventory.sh /tmp/
 ADD silent.rsp /tmp/
-RUN chmod +x create_inventory.sh
+RUN chmod +x /tmp/create_inventory.sh
 RUN yum -y install xterm xauth libXtst \
 && groupadd -g 54322 oracle \
 && useradd -u 54321 -g oracle oracle \
