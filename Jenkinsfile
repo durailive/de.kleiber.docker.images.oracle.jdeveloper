@@ -1,4 +1,4 @@
-pipeline {
+bpipeline {
   agent {
     node {
       label 'localhost'
@@ -20,7 +20,7 @@ sudo docker build --tag oracle/jdeveloper:$SW_VERSION --build-arg SW_FILE1=$SW_F
     }
     stage('Push Docker Image to docker hub Registry') {
       steps {
-            docker.withRegistry('https://registry.hub.docker.com', 'store.docker') {
+            docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
 
         def customImage = docker.build("venkateshdevops2020/oracle_jdeveloper_12.2.1.4")
      
