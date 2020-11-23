@@ -11,7 +11,7 @@ RUN yum -y install xterm xauth libXtst \
 && groupadd -g 54322 oracle \
 && useradd -u 54321 -g oracle oracle \
 && /tmp/create_inventory.sh /opt/oracle/oraInventory oracle \
-&& mkdir -p /oracle/home \
+&& mkdir -p /home/oracle \
 && chown -R oracle:oracle /home/oracle
 USER oracle
 ENV JAVA_HOME=/usr/java/default
