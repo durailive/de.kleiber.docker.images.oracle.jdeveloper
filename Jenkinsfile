@@ -1,4 +1,4 @@
-bpipeline {
+pipeline {
   agent {
     node {
       label 'localhost'
